@@ -1,38 +1,87 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 100;
+}
+p {
+  font-size: 3rem;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-weight: 300;
+  font-size: 5rem;
+  margin-bottom: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
+  max-width: 1048px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.timer__wrapper {
+  padding: 5px;
+  border-radius: 30px;
+  background-color: var(--text-shadow-color);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
+.button__wrapper {
+  display: flex;
+  padding: 1em;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.button {
+  margin: 5px;
+  color: lightgrey;
+  background-color: white;
+  font-size: 1.5em;
+  border-radius: 100vh;
+  border: 1px solid lightgrey;
+  padding: 1em;
+  transition: 0.3s;
+}
+.button:active {
+  border: 1px solid var(--text-main-color);
+  background-color: var(--text-main-color);
+}
+.button:hover {
+  background-color: lightgrey;
   color: white;
+  border: 1px solid white;
 }
-
-.App-link {
-  color: #61dafb;
+.button:disabled {
+  background-color: rgb(170, 164, 164);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.record {
+  display: flex;
+  justify-content: center;
+}
+.record p {
+  font-size: 1rem;
+  margin-left: 30px;
+}
+@media only screen and (max-device-width: 1280px) {
+  * {
+    font-size: 0.9em;
   }
-  to {
-    transform: rotate(360deg);
+  h1 {
+    font-size: 60px;
+    line-height: 0px;
+  }
+  .button__wrapper {
+    margin: auto;
+    width: 100%;
+  }
+  .timer__display > p {
+    font-size: 3.8em;
+    padding-left: 0;
   }
 }

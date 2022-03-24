@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import useTimer from "./useTimer.js";
 
 function App() {
+  const {
+    time,
+    startTimer,
+    stopTimer,
+    resetTimer,
+    active,
+    prevTimeStore,
+    formatTime,
+  } = useTimer(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1>Coder Timer</h1>
+      <div className="timer__wrapper">
+        <div className="timer__display">
+          <p>{formatTime(time)}</p>
+        </div>
+        <div className="button__wrapper">
+          <button className="button" onClick={() => stopTimer(time)}>
+            Stop
+          </button>
+          <button
+            ref={active}
+            className="button"
+            onClick={() => startTimer(time)}
+          >
+            Start
+          </button>
+          <button className="button" onClick={() => resetTimer(time)}>
+            Reset
+          </button>
+        </div>
+        <div className="record">
+          <p>Last stop at: {prevTimeStore ? `${prevTimeStore}` : ""}</p>
+        </div>
+      </div>
     </div>
   );
 }
